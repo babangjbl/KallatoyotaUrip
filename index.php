@@ -1,3 +1,17 @@
+<?php 
+require "functions.php";
+// Jika admin/user menekan tombol save
+if(isset($_POST["submit"])){
+	// jika data yang diinput tidak kosong
+	if(dataBarang($_POST) > 0){
+		echo "Data telah disimpan";
+	}
+	else{
+		echo "Gagal menyimpan data";
+	}
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -48,39 +62,38 @@
         </div>
       </nav>
     <div class="container">
-        <form class="row g-3 justify-content-center">
+        <form action="" method="POST" class="row g-3 justify-content-center">
             <div class="col-md-5">
               <label for="inputNO4" class="form-label">NO.POLISI</label>
-              <input type="text" class="form-control" id="inputNO4">
+              <input type="text" class="form-control" id="inputNO4" name="no" required autocomplete="off">
             </div>
             <div class="col-md-5 ">
               <label for="inputWO4" class="form-label">NO.WORK ORDER</label>
-              <input type="text" class="form-control" id="inputWO4">
+              <input type="text" class="form-control" id="inputWO4" name="wo" required autocomplete="off">
             </div>
             <div class="input-group col align-self-center row-cols-md-1">
-              <select class="form-select col-md-1" id="inputGroupSelect03" aria-label="Example select with button addon">
+              <select name="nama_sa" class="form-select col-md-1" id="inputGroupSelect03" aria-label="Example select with button addon">
                 <option selected>Service Advisior...</option>
-                <option value="1">Farel</option>
-                <option value="2">Syam</option>
-                <option value="3">Irwansyah</option>
-                <option value="3">Imam</option>
-                <option value="3">Fadli</option>
-                <option value="3">Reza</option>
-                <option value="3">Hariyadi</option>
-                <option value="3">Musrin</option>
-                <option value="3">Ahmad Supardy</option>
+                <option value="Farel">Farel</option>
+                <option value="Syam">Syam</option>
+                <option value="Irwansyah">Irwansyah</option>
+                <option value="Imam">Imam</option>
+                <option value="Fadli">Fadli</option>
+                <option value="Reza">Reza</option>
+                <option value="Hariyadi">Hariyadi</option>
+                <option value="Musrin">Musrin</option>
+                <option value="Ahmad Supardy">Ahmad Supardy</option>
               </select>
               <div class="input-group justify-content-center">
                 <span class="input-group-text">With textarea</span>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
-              </div>
-              <input type="date" id="dt" onchange="mydate1();"/>
-              <input type="text" id="ndt"  onclick="mydate();"hidden/>    
+                <textarea type="text" class="form-control" aria-label="With textarea" name="nama_barang" required autocomplete="off"></textarea>
+              </div> 
             </div>
             <div class="row-cols-3 gap-2 d-md-flex justify-content-md-center">
-              <button class="btn btn-primary me-md-3" type="button">SAVE</button>
-              <button class="btn btn-primary" type="button">PRINT</button>
+              <button class="btn btn-primary me-md-3" type="submit" name="submit">SAVE</button>
+              <button class="btn btn-primary" type="submit">PRINT</button>
             </div>
+		</form>
     </div>
 
   </body>
