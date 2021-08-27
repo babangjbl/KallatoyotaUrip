@@ -1,1 +1,0 @@
-# kallatoyotaurip.github.io
